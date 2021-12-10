@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Champion Sweatshirt - Limited Edition",
+    "requiredWorkers": 3,
+    "requiredWork": 520000000
+  },
+  {
+    "name": "Classic Hoodie",
+    "requiredWorkers": 4,
+    "requiredWork": 340000000
+  },
+  {
+    "name": "Modern HoLodie",
+    "requiredWorkers": 4,
+    "requiredWork": 340000000
+  },
+  {
+    "name": "Embroidered Champion Bomber Jacket",
+    "requiredWorkers": 5,
+    "requiredWork": 580000000
+  },
+  {
+    "name": "Premium Polo",
+    "requiredWorkers": 2,
+    "requiredWork": 280000000
+  },
+  {
+    "name": "Bucket Hat",
+    "requiredWorkers": 1,
+    "requiredWork": 210000000
+  },
+  {
+    "name": "Cuffed Beanie",
+    "requiredWorkers": 2,
+    "requiredWork": 190000000
+  }
+]
