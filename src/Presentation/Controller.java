@@ -5,7 +5,7 @@ import Business.ProductManager;
 
 public class Controller {
     private final Menu menu;
-    private ProductManager productManager;
+    private  ProductManager productManager;
 
     public Controller(Menu menu, ProductManager productManager) {
         this.menu = menu;
@@ -28,7 +28,7 @@ public class Controller {
             default -> menu.showMessage("Wrong option. Enter a number from 1 to 4, both included");
         }
     }
-    
+
     private void exitMenu() {
         menu.spacing();
         menu.showMessage("See you later, Faggot!");
