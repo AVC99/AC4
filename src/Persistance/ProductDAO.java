@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
-    private Gson gson ;
+    private final Gson gson ;
 
     public ProductDAO(){
         this.gson= new Gson();

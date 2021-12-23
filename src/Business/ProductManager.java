@@ -5,17 +5,19 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class ProductManager {
-    private ArrayList<Product> productList;
-    private LinkedList<Worker> workerLinkedList;
+    private final ArrayList<Product> productList;
+    private final LinkedList<Worker> workerLinkedList;
 
     public ProductManager(ProductDAO productDAO) {
         this.productList = productDAO.loadProducts();
         this.workerLinkedList=new LinkedList<>();
     }
 
+    /**
+     * Function that starts all the progress for the products by starting the workers
+     */
     public void startProgress(){
         for (Product p: productList){
-            //System.out.println(p.getName());
             for(int i=0; i<p.getRequiredWorkers(); i++){
               Worker worker = new Worker(p);
               workerLinkedList.add(worker);
@@ -23,12 +25,20 @@ public class ProductManager {
             }
         }
     }
+
+    /**
+     * Function that stops all the workers
+     */
     public void stopProgress(){
         for (Worker w: workerLinkedList){
             w.stopWorking();
         }
     }
 
+    /**
+     * Function that returns the list of products of the product manager
+     * @return product list
+     */
     public ArrayList<Product> getProductList() {
         return productList;
     }

@@ -21,16 +21,19 @@ public class Menu {
         spacing();
     }
 
+    /**
+     * Shows  message
+     * @param message message
+     */
     public void showMessage(String message) {
         System.out.print(message);
     }
 
-    public String askForString(String message) {
-        System.out.print(message);
-        return scanner.nextLine();
-    }
-
-
+    /**
+     * Asks the user for a integer
+     * @param message message displayed
+     * @return the user's input
+     */
     public int askForInteger(String message) {
         while (true) {
             try {
@@ -43,28 +46,18 @@ public class Menu {
             }
         }
     }
-    public double askForDouble(String message) {
-        while (true) {
-            try {
-                System.out.print(message);
-                return scanner.nextDouble();
-            } catch (InputMismatchException e) {
-                System.out.println("That's not a valid double, try again!");
-            } finally {
-                scanner.nextLine();
-            }
-        }
-    }
-    public void showTabulatedList(LinkedList<String> messages) {
-        for (String message : messages) {
-            showTabulatedMessage(message);
-        }
-    }
 
+    /**
+     * Shows tabulated message
+     * @param message message to show
+     */
     public void showTabulatedMessage(String message) {
         System.out.println("\t" + message);
     }
 
+    /**
+     * Displays a space in the console
+     */
     public void spacing() {
         System.out.println();
     }

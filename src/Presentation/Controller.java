@@ -6,16 +6,18 @@ import Business.ProductManager;
 
 public class Controller {
     private final Menu menu;
-    private  ProductManager productManager;
+    private final ProductManager productManager;
 
     public Controller(Menu menu, ProductManager productManager) {
         this.menu = menu;
         this.productManager = productManager;
     }
 
-    synchronized public void run() {
+    /**
+     * Function that starts the program and starts the worker threads
+     */
+    public void run() {
         int option;
-        System.out.println("hola");
         productManager.startProgress();
         do {
             menu.showMenu();
@@ -24,6 +26,10 @@ public class Controller {
         } while (option != 2);
     }
 
+    /**
+     * Function that runs the options that the user has chosen
+     * @param option user election
+     */
     private void runOption(int option){
         switch (option) {
             case 1 -> {
@@ -37,6 +43,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Function that ends the program and stops all the workers
+     */
     private void exitMenu() {
         menu.spacing();
         menu.showMessage("Stopping all workers... Bye!");
