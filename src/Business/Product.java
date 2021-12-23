@@ -1,5 +1,7 @@
 package Business;
 
+import java.util.LinkedList;
+
 public class Product {
     private String name;
     private int requiredWorkers;
@@ -21,16 +23,28 @@ public class Product {
         return requiredWorkers;
     }
 
-    public void addWork(){
+    synchronized public void addWork(){
         workDone++;
     }
 
-    public long getWorkDone() {
-        return workDone;
+    public String showProgress(){
+        double percentage;
+        percentage=((float)workDone/requiredWork)*100;
+
+        StringBuilder processlist= new StringBuilder();
+        for (int i=0;i<20;i++){
+            if (percentage>0){
+                processlist.append("#");
+            }else processlist.append("_");
+            percentage-=5;
+        }
+        if(isProductFinished()) processlist.append(" (Done) ");
+
+        return processlist.toString();
     }
 
     public boolean isProductFinished(){
-        return this.workDone >= this.requiredWork;
+        return requiredWork <= workDone;
     }
     public long getRequiredWork() {
         return requiredWork;

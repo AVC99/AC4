@@ -1,6 +1,7 @@
 package Presentation;
 
 import java.util.InputMismatchException;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Menu {
@@ -54,7 +55,7 @@ public class Menu {
             }
         }
     }
-    public void showTabulatedList(String[] messages) {
+    public void showTabulatedList(LinkedList<String> messages) {
         for (String message : messages) {
             showTabulatedMessage(message);
         }

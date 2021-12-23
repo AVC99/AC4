@@ -13,8 +13,9 @@ public class ProductManager {
         this.workerLinkedList=new LinkedList<>();
     }
 
-   synchronized public void calculateProgress(){
+    public void startProgress(){
         for (Product p: productList){
+            //System.out.println(p.getName());
             for(int i=0; i<p.getRequiredWorkers(); i++){
               Worker worker = new Worker(p);
               workerLinkedList.add(worker);
@@ -22,6 +23,13 @@ public class ProductManager {
             }
         }
     }
+    public void stopProgress(){
+        for (Worker w: workerLinkedList){
+            w.stopWorking();
+        }
+    }
 
-
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
 }

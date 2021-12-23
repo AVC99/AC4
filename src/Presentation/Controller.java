@@ -1,5 +1,6 @@
 package Presentation;
 
+import Business.Product;
 import Business.ProductManager;
 
 
@@ -12,8 +13,10 @@ public class Controller {
         this.productManager = productManager;
     }
 
-    public void run() {
+    synchronized public void run() {
         int option;
+        System.out.println("hola");
+        productManager.startProgress();
         do {
             menu.showMenu();
             option = menu.askForInteger("Enter an option: ");
@@ -23,15 +26,22 @@ public class Controller {
 
     private void runOption(int option){
         switch (option) {
-            case 1 -> productManager.calculateProgress();
+            case 1 -> {
+                 for (Product p: productManager.getProductList()){
+                     this.menu.showTabulatedMessage(p.getName());
+                     this.menu.showTabulatedMessage(p.showProgress());
+                 }
+            }
             case 2 -> exitMenu();
-            default -> menu.showMessage("Wrong option. Enter a number from 1 to 4, both included");
+            default -> menu.showMessage("Wrong option. Enter a number from 1 to 2, both included");
         }
     }
 
     private void exitMenu() {
         menu.spacing();
-        menu.showMessage("See you later, Faggot!");
+        menu.showMessage("Stopping all workers... Bye!");
+        productManager.stopProgress();
+
     }
 
 }

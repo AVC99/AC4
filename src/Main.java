@@ -4,10 +4,11 @@ import Presentation.Controller;
 import Presentation.Menu;
 
 public class Main {
-    public static void main(String[] args) {
+   synchronized public static void main(String[] args) {
         Menu menu = new Menu();
-        ProductManager pokeManager = new ProductManager(new ProductDAO());
-        Controller controller = new Controller(menu, pokeManager);
+        ProductManager productManager = new ProductManager(new ProductDAO());
+
+        Controller controller = new Controller(menu, productManager);
         controller.run();
     }
 }

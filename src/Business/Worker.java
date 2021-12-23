@@ -23,9 +23,13 @@ public class Worker implements Runnable {
         return actualWork+1;
     }
 
+    public void stopWorking() {
+        this.continueWorking = false;
+    }
+
     @Override
    synchronized public void run() {
-        while (!this.product.isProductFinished()&& this.continueWorking){
+        while (!this.product.isProductFinished()&& continueWorking){
             this.product.addWork();
         }
     }
